@@ -1,6 +1,13 @@
 # Open BP Review Assistant
 
-An open-source, device-agnostic prototype that turns a weekly home blood pressure monitoring file into a staff-reviewed care-team summary and a template-based follow-up message draft. It is aimed at under-resourced programs. Final project for EPID 695/895, Agentic AI in Healthcare and Public Health.
+An open-source, device-agnostic prototype that turns a weekly home blood pressure monitoring file into a staff-reviewed care-team summary and a template-based follow-up message draft. It is aimed at under-resourced programs. Final project for EPID 695/895, Agentic AI in Healthcare and Public Health. 
+
+## Wire diagram
+
+The readability check (Flesch-Kincaid grade via textstat) sits between the Draft message node and the Staff review report: it scores each templated draft and flags any above the target grade for staff review.
+
+![Workflow wire diagram](docs/wire_diagram.png)
+
 
 ## Current contents
 
