@@ -1,0 +1,9 @@
+# Local environment and caches
+.venv/
+__pycache__/
+.pytest_cache/
+
+# Not part of the project
+failure_check/
+*.code-workspace
+~$*
