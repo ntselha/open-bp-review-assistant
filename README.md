@@ -7,6 +7,7 @@ An open-source, device-agnostic prototype that turns a weekly home blood pressur
 - `readability_node.py`: Readability check node. Scores draft patient messages with the Flesch-Kincaid Grade Level (textstat) and flags drafts above the target grade for staff review. Drafts are never blocked or rewritten.
 - `READABILITY_NODE_CONTRACT.md`: The node's interface contract.
 - `test_flesch_kincaid_grade_level.py`: Session 6 unit tests for the readability protocol.
+- `docs/OpenBP_wire_diagram_Tselha.pdf`: Session 5 wire diagram showing how the workflow nodes connect.
 
 ## Run the tests
 
