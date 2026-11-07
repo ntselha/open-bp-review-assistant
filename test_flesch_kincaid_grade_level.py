@@ -391,3 +391,11 @@ def test_bad_target_grade(tmp_path, raw_value):
     cfg.write_text(f"target_grade: {raw_value}\n", encoding="utf-8")
     with pytest.raises(ValueError, match="target_grade"):
         load_config(cfg)
+
+def test_short_two_sentence_draft_passes(default_config):
+    result = check_readability(
+        _msg("Your blood pressure looks good. Keep up the good work."),
+        default_config,
+    )
+    assert result["passed"] is True
+    assert result["status"] == "pass"
