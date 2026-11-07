@@ -1,6 +1,8 @@
 # Open BP Review Assistant
 
-An open-source, device-agnostic prototype that turns a weekly home blood pressure monitoring file into a staff-reviewed care-team summary and a template-based follow-up message draft. It is aimed at under-resourced programs. Final project for EPID 695/895, Agentic AI in Healthcare and Public Health. 
+[![tests](https://github.com/ntselha/open-bp-review-assistant/actions/workflows/tests.yml/badge.svg)](https://github.com/ntselha/open-bp-review-assistant/actions/workflows/tests.yml)
+
+An open-source, device-agnostic prototype that turns device-agnostic prototype that turns a weekly home blood pressure monitoring file into a staff-reviewed care-team summary and a template-based follow-up message draft. It is aimed at under-resourced programs. Final project for EPID 695/895, Agentic AI in Healthcare and Public Health. 
 
 ## Wire diagram
 
