@@ -398,4 +398,4 @@ def test_short_two_sentence_draft_passes(default_config):
         default_config,
     )
     assert result["passed"] is True
-    assert result["status"] == "flag"  # wrong on purpose: an easy draft should pass
+    assert result["status"] == "pass"
