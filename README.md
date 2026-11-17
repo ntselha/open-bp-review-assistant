@@ -198,14 +198,3 @@ Two tests describe known limitations. They are marked `xfail(strict=True)`: they
 - Shimbo D, Artinian NT, Basile JN, et al. Self-measured blood pressure monitoring at home: a joint policy statement from the American Heart Association and American Medical Association. *Circulation.* 2020;142(4):e42–e63.
 - Whelton PK, Carey RM, Aronow WS, et al. 2017 ACC/AHA/AAPA/ABC/ACPM/AGS/APhA/ASH/ASPC/NMA/PCNA guideline for the prevention, detection, evaluation, and management of high blood pressure in adults. *Hypertension.* 2018;71(6):1269–1324.
 
-## Final project checklist
-
-- [x] Workflow runs end to end with one command
-- [x] Every wire-diagram component is in the code
-- [x] Unit tests pass in GitHub Actions
-- [x] Each component is its own module (`openbp/`)
-- [x] Mermaid wire diagram matching the code
-- [x] Unit test for every atomic protocol and disposable component, run in GitHub Actions; xfails described above
-- [x] `WORKFLOW.md` instructions for regenerating the glue
-- [x] Dependency file with pinned versions
-- [x] README covering what the workflow does and how to set it up and run it
