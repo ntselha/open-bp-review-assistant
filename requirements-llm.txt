@@ -1,0 +1,4 @@
+# Optional: only needed for the LLM staff summary step.
+# Install with: pip install -r requirements-llm.txt
+# and set the ANTHROPIC_API_KEY environment variable (never commit the key).
+anthropic==0.69.0

@@ -1,0 +1,45 @@
+# Open BP Review Assistant settings.
+# Programs change these values, not the code.
+
+# Readability check: highest Flesch-Kincaid grade a draft message may have.
+# (Top-level key, read by readability_node.load_config; valid range 1-12.)
+target_grade: 6
+
+program:
+  clinic_name: Main Street Clinic
+  clinic_phone: 555-0100
+
+review:
+  window_days: 7               # length of the review week
+  report_date: null            # YYYY-MM-DD; null = last reading date in the file
+  no_reading_cutoff_days: 7    # no reading for longer than this -> "No recent readings"
+
+# Home BP protocol adherence (Shimbo et al., 2020; Muntner et al., 2019)
+adherence:
+  min_days: 3                  # minimum days with readings
+  min_readings: 12             # 3 days x 2 sittings x 2 readings
+  optimal_days: 7
+  optimal_readings: 28
+  pair_min_seconds: 60         # readings in a sitting should be >= 1 minute apart
+  morning_ends_hour: 12        # readings before 12:00 count as morning
+  drop_first_day: false        # first-day rule: ignore day 1 of the week if true
+
+# BP threshold (Whelton et al., 2017 home-BP equivalent: 130/80)
+threshold:
+  systolic: 130
+  diastolic: 80
+
+# Plausibility range: readings outside it are flagged and left out of averages
+plausibility:
+  systolic_min: 70
+  systolic_max: 250
+  diastolic_min: 40
+  diastolic_max: 150
+
+# LLM staff summary. Runs only if ANTHROPIC_API_KEY is set and the
+# anthropic package is installed; otherwise the template summary is used.
+llm:
+  enabled: true
+  model: claude-haiku-5-5
+  max_tokens: 400
+  prompt_file: prompts/staff_summary_prompt.txt

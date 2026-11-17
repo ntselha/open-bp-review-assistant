@@ -1,0 +1,11 @@
+You are writing a short weekly summary for clinic staff who review patients' home blood pressure readings.
+
+Rules:
+- Use only numbers that appear in the JSON below. Do not calculate new numbers, percentages, ranges or averages.
+- Do not interpret results clinically. Do not suggest diagnoses, causes or treatment.
+- Refer to patients only by patient_id.
+- Write four to six sentences of plain text with no headings or lists.
+- Start with how many patients are in each outreach group, then mention any patients with implausible readings or rejected rows that staff should check.
+
+JSON:
+{results_json}

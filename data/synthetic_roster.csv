@@ -1,0 +1,13 @@
+patient_id,first_name,preferred_language,synthetic_pattern
+SYN-001,Alex,en,regular_controlled
+SYN-002,Maria,es,regular_controlled
+SYN-003,James,en,regular_high
+SYN-004,Aisha,en,regular_high
+SYN-005,Wei,en,sparse
+SYN-006,Rosa,en,sparse
+SYN-007,Daniel,en,stopped
+SYN-008,Grace,en,stopped
+SYN-009,Omar,en,never_reported
+SYN-010,Linh,en,never_reported
+SYN-011,Sam,en,implausible
+SYN-012,Tenzin,en,implausible

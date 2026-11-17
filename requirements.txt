@@ -16,3 +16,13 @@ iniconfig==2.0.0
 packaging==24.1
 pluggy==1.5.0
 colorama==0.4.6 ; sys_platform == "win32"
+
+# Workflow (run_workflow.py)
+pandas==2.3.3
+numpy==2.3.4
+python-dateutil==2.9.0.post0
+pytz==2025.2
+tzdata==2025.2
+six==1.17.0
+openpyxl==3.1.5
+et-xmlfile==2.0.0

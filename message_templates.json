@@ -1,0 +1,6 @@
+{
+  "no_recent_readings": "Hi {first_name}, this is {clinic_name}. We have not seen any blood pressure readings from you this week. Is everything OK? Please send your readings when you can. If your monitor is not working, call us at {clinic_phone} and we can help.",
+  "too_few_readings": "Hi {first_name}, this is {clinic_name}. Thank you for sending your blood pressure readings. We need a few more to get a clear picture. Please check two times in the morning and two times at night, for at least three days. Call us at {clinic_phone} if you have questions.",
+  "above_threshold": "Hi {first_name}, this is {clinic_name}. Thank you for sending your blood pressure readings. Your care team would like to talk with you about them. Please call us at {clinic_phone} so we can set up a time.",
+  "routine": "Hi {first_name}, this is {clinic_name}. Thank you for sending your blood pressure readings this week. Please keep checking two times in the morning and two times at night. Call us at {clinic_phone} if you have questions."
+}

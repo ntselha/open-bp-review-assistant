@@ -7,3 +7,9 @@ __pycache__/
 failure_check/
 *.code-workspace
 ~$*
+
+# Workflow outputs (regenerate with python run_workflow.py)
+output/
+
+# Secrets
+.env
