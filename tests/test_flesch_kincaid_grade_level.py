@@ -12,7 +12,7 @@ Citable sources
     8-75. Millington, TN: Naval Technical Training Command; 1975.
     FKGL = 0.39 * (words / sentences) + 11.8 * (syllables / words) - 15.59
 
-    READABILITY_NODE_CONTRACT.md v0.1: the node's input rules (C1-C5),
+    docs/READABILITY_NODE_CONTRACT.md v0.1: the node's input rules (C1-C5),
     language handling (L1-L4), output (O1-O4) and config (G1-G4). Tests
     whose expected behavior textstat does not document cite these clauses.
 
@@ -43,11 +43,11 @@ from pathlib import Path
 import pytest
 import textstat
 
-from readability_node import ReadabilityConfig, check_readability, load_config
+from openbp.readability_node import ReadabilityConfig, check_readability, load_config
 
 LANG = "en_US"
 
-HERE = Path(__file__).resolve().parent
+HERE = Path(__file__).resolve().parent.parent  # repository root
 CONFIG_PATH = Path(os.environ.get("READABILITY_CONFIG", HERE / "config.yaml"))
 TEMPLATES_PATH = Path(
     os.environ.get("READABILITY_TEMPLATES", HERE / "message_templates.json")

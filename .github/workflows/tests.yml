@@ -26,3 +26,5 @@ jobs:
           pip install -r requirements.txt
       - name: Run unit tests
         run: pytest -v
+      - name: Run the workflow end to end on synthetic data
+        run: python run_workflow.py

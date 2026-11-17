@@ -1,6 +1,8 @@
 """Readability check node for the Open BP Review Assistant.
 
-Implements READABILITY_NODE_CONTRACT.md v0.1. Scores English patient-message
+10. Readability check (atomic protocol).
+
+Implements docs/READABILITY_NODE_CONTRACT.md v0.1. Scores English patient-message
 drafts with the Flesch-Kincaid Grade Level (Kincaid et al., 1975) via
 textstat, flags drafts above the configured target for staff review, and
 never blocks or rewrites a draft.
@@ -85,7 +87,7 @@ def _is_english(language: str) -> bool:
 
 
 def check_readability(message: dict, config: ReadabilityConfig | None = None) -> dict:
-    """Score one draft message. See READABILITY_NODE_CONTRACT.md."""
+    """Score one draft message. See docs/READABILITY_NODE_CONTRACT.md."""
     if config is None:
         config = ReadabilityConfig()
 

@@ -1,0 +1,54 @@
+flowchart TD
+    %% Open BP Review Assistant: wire diagram matching the code in openbp/
+    IN[/"readings file<br/>(CSV / XLSX)"/]
+    ROSTER[/"roster.csv<br/>(optional)"/]
+    CFG[("config.yaml")]
+    TPL[("message_templates.json")]
+    PROMPT[("prompts/staff_summary_prompt.txt")]
+
+    V["1 Validate input<br/><i>validate_input.py</i><br/>required columns, dates, numbers, duplicates"]
+    F["2 Flag implausible<br/><i>flag_implausible.py</i><br/>range rules; flags, never deletes"]
+    A["3 Protocol adherence<br/><i>protocol_adherence.py</i><br/>Shimbo 2020; Muntner 2019"]
+    S["4 Summary statistics<br/><i>summary_statistics.py</i><br/>means, counts, days since last"]
+    T["5 BP threshold check<br/><i>bp_threshold.py</i><br/>Whelton 2017; default 130/80"]
+    G{"6 Triage grouping<br/><i>triage.py</i><br/>1 No recent → 2 Too few →<br/>3 Above threshold → 4 Routine"}
+    D["7 Draft message<br/><i>draft_message.py</i><br/>approved template; no LLM"]
+    R["10 Readability check<br/><i>readability_node.py</i><br/>Flesch-Kincaid via textstat"]
+    L["8 LLM staff summary<br/><i>llm_summary.py</i><br/>pinned Claude model; skipped without key"]
+    N["9 Number-match check<br/><i>number_match.py</i><br/>fail → regenerate once → template"]
+    REP["11 Staff review report<br/><i>staff_report.py</i><br/>HTML + review sheet; human approves"]
+    OUT[/"staff_review_report.html, review_sheet.csv,<br/>patient_results.json, audit_log.json"/]
+    SYN["12 Synthetic data<br/><i>generate_synthetic_data.py</i><br/>test fixture"]
+
+    IN -- "raw table (DataFrame, text)" --> V
+    V -- "clean readings (DataFrame) + rejected rows (list)" --> F
+    F -- "readings + flag_implausible (DataFrame)" --> A
+    F -- "valid week + all readings (DataFrame)" --> S
+    ROSTER -- "patient_id, first_name, language" --> D
+    A -- "adherence record (dict)" --> T
+    S -- "mean SBP/DBP (float)" --> T
+    A -- "sufficient (bool)" --> G
+    S -- "days since last reading (int / None)" --> G
+    T -- "BP category (str)" --> G
+    G -- "group (str)" --> D
+    D -- "draft message (str)" --> R
+    R -- "draft + grade (float) + status (str)" --> REP
+    G -- "all patient results (JSON str)" --> L
+    L -- "summary text (str)" --> N
+    N -. "fail → regenerate once" .-> L
+    N -- "verified or template summary (str)" --> REP
+    REP --> OUT
+    SYN -. "synthetic readings + roster (CSV)" .-> IN
+
+    CFG -.-> F & A & T & G & D & R & L
+    TPL -.-> D
+    PROMPT -.-> L
+
+    classDef atomic fill:#1f3a5f,color:#fff,stroke:#1f3a5f
+    classDef disposable fill:#dce8f5,color:#1b2a3a,stroke:#5b7fa6
+    classDef decision fill:#dce8f5,color:#1b2a3a,stroke:#c77d1a,stroke-width:3px
+    classDef fixture fill:#f5f7fa,color:#1b2a3a,stroke:#5b7fa6,stroke-dasharray:5 5
+    class A,T,R atomic
+    class V,F,S,D,L,N,REP disposable
+    class G decision
+    class SYN fixture
